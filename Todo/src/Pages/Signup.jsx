@@ -52,7 +52,7 @@ const Signup = () => {
     },
   }));
 
-  const submitHAndler = () => {
+  const submitHAndler = async() => {
     const ref = inputRef.current;
 
     const name = ref.name.value;
@@ -71,9 +71,13 @@ const Signup = () => {
     };
 
     try {
-      const response = axios.post("/user/registraion", formdata);
+      const response = await axios.post("/user/registraion", formdata);
 
       console.log(" response", response);
+
+      if(response.status == 200){
+        navigate()
+      }
     } catch (error) {
       console.log("error :", error);
     }
