@@ -13,7 +13,7 @@ const E4U_slice = createSlice({
   reducers: {
     add_todo: (state, action) => {
       const content = action.payload.content;
-      state.todos = content;
+      state.todos.push(content);
     }
 
    
